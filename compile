@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$1" = "" ]; then
+    echo "Please specify the path to the SDK"
+else
+    compc -load-config+=config.xml -output bin/library.swc -include-sources=src
+    unzip bin/library.swc library.swf -d bin/
+
+    optimizer -load-config=$1/flex-config.xml -keep-as3-metadata="Bindable,Managed,ChangeEvent,NonCommittingChangeEvent,Transient" -input bin/library.swf -output bin/library-optimized.swf
+
+    digest -digest.rsl-file bin/library-optimized.swf -digest.swc-path "bin/library.swc"
+fi
+
