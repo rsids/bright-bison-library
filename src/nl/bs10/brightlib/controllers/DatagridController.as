@@ -47,7 +47,7 @@ package nl.bs10.brightlib.controllers {
 					case 'confirmed':
 					case 'deleted':
 					case 'enabled':
-					case 'allwayspublished':
+					case 'alwayspublished':
 					case 'showinnavigation':
 						column.itemRenderer = new ClassFactory(DGCheckboxRenderer);
 						column.editable = false;

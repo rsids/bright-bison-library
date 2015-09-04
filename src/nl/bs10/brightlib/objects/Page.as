@@ -12,7 +12,7 @@ package nl.bs10.brightlib.objects {
 		
 		private var _pageId:int;
 		private var _label:String;
-		private var _allwayspublished:Boolean = true;
+		private var _alwayspublished:Boolean = true;
 		private var _showinnavigation:Boolean = true;
 		private var _itemType:int;
 		private var _content:Object;
@@ -92,16 +92,16 @@ package nl.bs10.brightlib.objects {
 			return _flexpirationdate;
 		}
 		
-		[Bindable(event="allwayspublishedChanged")]
-		public function set allwayspublished(value:Boolean):void {
-			if(value !== _allwayspublished) {
-				_allwayspublished = value;
-				dispatchEvent(new Event("allwayspublishedChanged"));
+		[Bindable(event="alwayspublishedChanged")]
+		public function set alwayspublished(value:Boolean):void {
+			if(value !== _alwayspublished) {
+				_alwayspublished = value;
+				dispatchEvent(new Event("alwayspublishedChanged"));
 			}
 		}
 		
-		public function get allwayspublished():Boolean {
-			return _allwayspublished;
+		public function get alwayspublished():Boolean {
+			return _alwayspublished;
 		}
 		
 		[Bindable(event="showinnavigationChanged")]
@@ -263,7 +263,7 @@ package nl.bs10.brightlib.objects {
 			var p:Page = new Page();
 			p.pageId = pageId;
 			p.label = label;
-			p.allwayspublished = allwayspublished;
+			p.alwayspublished = alwayspublished;
 			p.showinnavigation = showinnavigation;
 			p.itemType = itemType;
 			p.content = content;

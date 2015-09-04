@@ -31,9 +31,9 @@ package nl.bs10.brightlib.interfaces
 		function set label(value:String):void;
 		function get label():String;
 		
-		[Bindable(event="allwayspublishedChanged")]
-		function set allwayspublished(value:Boolean):void;
-		function get allwayspublished():Boolean;
+		[Bindable(event="alwayspublishedChanged")]
+		function set alwayspublished(value:Boolean):void;
+		function get alwayspublished():Boolean;
 		
 		[Bindable(event="showinnavigationChanged")]
 		function set showinnavigation(value:Boolean):void;

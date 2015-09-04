@@ -10,6 +10,8 @@ package nl.bs10.brightlib.objects {
 		private var _filename:String;
 		private var _extension:String;
 		private var _filesize:Number;
+		private var _modificationdate:int;
+        private var _flmodificationdate:Date = new Date();
 		private var _width:int;
 		private var _height:int;
 		private var _exif:Object;
@@ -91,8 +93,28 @@ package nl.bs10.brightlib.objects {
 		public function get width():int {
 			return _width;
 		}
-		
-		
+
+        public function set modificationdate(value:Number):void {
+            flmodificationdate = new Date(value * 1000);
+        }
+
+        public function get modificationdate():Number {
+            return Math.round(flmodificationdate.getTime() / 1000);
+        }
+
+
+        [Transient]
+        [Bindable(event="flmodificationdateChanged")]
+        public function set flmodificationdate(value:Date):void {
+            if(_flmodificationdate !== value) {
+                _flmodificationdate = value;
+                dispatchEvent(new Event("flmodificationdateChanged"));
+            }
+        }
+
+        public function get flmodificationdate():Date {
+            return _flmodificationdate;
+        }
 		
 		[Bindable(event="heightChanged")]
 		public function set height(value:int):void {
